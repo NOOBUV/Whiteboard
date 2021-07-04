@@ -146,6 +146,80 @@ input[type="color"]::-moz-color-swatch-wrapper {
   z-index: 100;
 }
 
+/* Pen Sub Tool */
+
+.pencil-sub-tools {
+  width: 57px;
+  display: inline;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  padding: 5px;
+}
+
+.picker {
+  border: 1px solid #ddd;
+}
+
+.pen-clr {
+  width: 32px;
+  height: 30px;
+  border-radius: 100%;
+  /* border: 1px solid #ddd; */
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pen-weight {
+  display: flex;
+}
+
+.pen-weight-input-container {
+  flex: 0.8;
+}
+
+.pen-weight-input {
+  width: 15px;
+  outline: none;
+  font-size: 12px;
+  height: 100%;
+  margin: 0;
+  border: none;
+}
+
+.pen-weight-controls > button {
+  margin: 0;
+  width: 100%;
+}
+
+.pen-weight-controls {
+  flex: 0.4;
+=======
 .top-tooltip {
   display: none;
   background: #000;
