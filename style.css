@@ -227,6 +227,13 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex: 0.4;
 }
 
+/* Eraser */
+.eraser-ctr {
+  position: absolute;
+  top: -50px;
+  left: 70px;
+}
+
 .top-tooltip {
   display: none;
   background: #000;

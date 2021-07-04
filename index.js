@@ -90,6 +90,16 @@ function decreaseFontSize(event) {
   if (penWeightInput.value > 1) penWeightInput.value--;
 }
 
+const eraserSize = document.querySelector(".eraser");
+
+function increaseEraseSize(event) {
+  if (eraserSize.value < 50) eraserSize.value++;
+}
+
+function decreaseEraseSize(event) {
+  if (eraserSize.value > 1) eraserSize.value--;
+}
+
 // // eraser js
 // jQuery(
 //   '<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>'
