@@ -155,8 +155,15 @@ let PENCIL_WIDTH = 10;
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 canvas.style.backgroundColor = BG_COLOR;
-context.width = window.innerWidth;
-context.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+console.log(window.innerHeight);
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+canvas.addEventListener("resize", resizeCanvas);
 
 const select = document.getElementById("select");
 const background = document.getElementById("background");
