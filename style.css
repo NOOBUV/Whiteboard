@@ -8,4 +8,50 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
+/* css for topbar */
+
+
+.topbar{
+  display: flex;
+  justify-content: space-between;
+  margin: 16.08px 0px;
+  border-bottom:1px solid #D6D6D6;
+  position:relative;
+
+}
+/*------brand-----*/
+.brand{
+
+  display: flex;
+  margin: 0 10px 0 0 ;
+  text-align: left;
+  font-family: 'Ubuntu',sans-serif;
+ font-weight: bold;;
+}
+.logo{
+  width: 59.3px;
+  height:60px;
+  padding:5px;
+}
+/*-----------------------------*/
+
+/*------right menu bar-------*/
+.right{
+  display:flex;
+  margin: 0 5px 0 5px ;
+}
+
+.right button{
+  margin-left:2px;
+  width:39.44px;
+  height:36.8px;
+  padding:5px;
+  background-color: #EEEEEE;
+  border:1px solid #D6D6D6;
+  border-radius: 4px;
+}
+
+
+/*----------------------------------------*/
