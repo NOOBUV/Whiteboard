@@ -292,7 +292,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex-direction: column;
   position: absolute;
   top: -180px;
-  left: 60px;
+  left: 70px;
   border: 1px solid black;
   border-radius: 0.5rem;
   /* display: none; */

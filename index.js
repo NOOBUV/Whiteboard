@@ -150,27 +150,70 @@ const undo = document.getElementById("undo");
 const redo = document.getElementById("redo");
 const clear = document.getElementById("clear");
 
+const backgroundElem = document.getElementsByClassName("bg-color-dropdown")[0];
+const patternElem = document.getElementsByClassName("bg-img-dropdown")[0];
+const pencilElem = document.getElementsByClassName("pencil-sub-tools")[0];
+const shapesElem = document.getElementsByClassName("shape-display")[0];
+const textElem = document.getElementsByClassName("text-options")[0];
+
+const arrayOfTools = [
+  backgroundElem,
+  patternElem,
+  pencilElem,
+  shapesElem,
+  textElem,
+];
+
 select.addEventListener("click", () => {
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
   console.log("hello");
 });
 
 background.addEventListener("click", () => {
-  const backgroundElem =
-    document.getElementsByClassName("bg-color-dropdown")[0];
-  backgroundElem.classList.toggle("none");
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  backgroundElem.classList.remove("none");
 });
 
 pattern.addEventListener("click", () => {
-  const patternElem = document.getElementsByClassName("bg-img-dropdown")[0];
-  patternElem.classList.toggle("none");
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  patternElem.classList.remove("none");
 });
 
 pencil.addEventListener("click", () => {
-  const pencilElem = document.getElementsByClassName("pencil-sub-tools")[0];
-  pencilElem.classList.toggle("none");
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  pencilElem.classList.remove("none");
 });
 
 shapes.addEventListener("click", () => {
-  const shapesElem = document.getElementsByClassName("shape-display")[0];
-  shapesElem.classList.toggle("none");
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  shapesElem.classList.remove("none");
+});
+
+text.addEventListener("click", () => {
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  textElem.classList.remove("none");
 });
