@@ -121,11 +121,11 @@ input[type="color"]::-moz-color-swatch-wrapper {
   transition: background-color 0.3s ease-in;
 }
 
-.btn:hover .tool-tooltip {
+.btn i:hover ~ .tool-tooltip {
   display: block;
 }
 
-.btn:hover .top-tooltip {
+.btn i:hover ~ .top-tooltip {
   display: block;
 }
 
@@ -164,7 +164,6 @@ input[type="color"]::-moz-color-swatch-wrapper {
   position: absolute;
   top: -120px;
   left: 70px;
-  display: none;
 }
 
 .picker {
@@ -243,7 +242,6 @@ input[type="color"]::-moz-color-swatch-wrapper {
 /*--------------------*/
 .bg-img-dropdown {
   position: absolute;
-
   left: 70px;
   top: -50px;
   border: solid 1px #d6d3d3;
@@ -253,8 +251,8 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex-direction: column;
   justify-content: center;
   border-radius: 4px;
-  display: none;
 }
+
 .bg-color-dropdown {
   position: absolute;
   left: 70px;
@@ -265,8 +263,8 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex-direction: column;
   justify-content: center;
   border-radius: 4px;
-  display: none;
 }
+
 .black {
   background-color: black;
 }
@@ -297,7 +295,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   left: 60px;
   border: 1px solid black;
   border-radius: 0.5rem;
-  display: none;
+  /* display: none; */
 }
 
 /* eraser tool */
@@ -321,7 +319,6 @@ input[type="color"]::-moz-color-swatch-wrapper {
   align-items: center;
   border: 2px solid #cccccc;
   border-radius: 10px;
-  display: none;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -408,7 +405,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   border: 1px solid #cccccc;
-  display: none;
+  /* display: none; */
 }
 .txt {
   margin: auto;
@@ -420,4 +417,12 @@ input[type="number"] {
   transform: rotate(-90deg);
   width: 20px;
   height: 20px;
+}
+
+.right .btn {
+  margin-right: 0.5rem;
+}
+
+.none {
+  display: none;
 }
