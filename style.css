@@ -122,6 +122,10 @@ input[type="color"]::-moz-color-swatch-wrapper {
   display: block;
 }
 
+.btn:hover .top-tooltip {
+  display: block;
+}
+
 .style-background-color {
   background-color: black;
   width: 25px;
@@ -135,6 +139,18 @@ input[type="color"]::-moz-color-swatch-wrapper {
   position: absolute;
   top: 5px;
   left: 40px;
+  width: auto;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  z-index: 100;
+}
+
+.top-tooltip {
+  display: none;
+  background: #000;
+  position: absolute;
+  top: 45px;
   width: auto;
   color: white;
   padding: 0.3rem;
