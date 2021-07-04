@@ -131,7 +131,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
 
 .tool-tooltip {
   display: none;
-  background: #000;
+  /* background: #000; */
   position: absolute;
   top: 5px;
   left: 40px;
