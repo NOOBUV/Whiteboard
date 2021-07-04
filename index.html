@@ -55,6 +55,21 @@
       <div class="eraser-tool btn" title="Eraser">
         <i class="fas fa-eraser"></i>
         <span class="tool-tooltip">Eraser</span>
+
+        <div class="custom-eraser">
+          <div class="triangle">▲</div>
+          <div class="quantity">
+            <input
+              type="number"
+              min="1"
+              max="50"
+              step="1"
+              value="1"
+              name="eraser"
+              id="eraser"
+            />
+          </div>
+        </div>
       </div>
       <div class="shape-tool btn" title="Shapes">
         <i class="fas fa-shapes"></i>
@@ -63,12 +78,19 @@
       <div class="text-tool btn" title="Text">
         <i class="fas fa-text-height"></i>
         <span class="tool-tooltip">Text</span>
+        <div class="text-options">
+          <div class="triangle-txt">▲</div>
+          <i class="fas fa-plus btn txt"></i>
+          <i class="fas fa-trash-alt btn txt"></i>
+          <i class="fas fa-bars btn txt"></i>
+        </div>
       </div>
       <div class="upload-img btn" title="Image">
         <i class="fas fa-image"></i>
         <span class="tool-tooltip">Image</span>
       </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>

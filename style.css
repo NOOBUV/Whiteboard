@@ -135,7 +135,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
 
 .tool-tooltip {
   display: none;
-  /* background: #000; */
+  background: #000;
   position: absolute;
   top: 5px;
   left: 40px;
@@ -156,4 +156,125 @@ input[type="color"]::-moz-color-swatch-wrapper {
   padding: 0.3rem;
   border-radius: 0.2rem;
   z-index: 100;
+}
+/* eraser tool */
+
+.triangle {
+  color: #cccccc;
+  position: absolute;
+  left: -15px;
+  transform: rotate(-90deg);
+  width: 20px;
+  height: 20px;
+}
+
+.custom-eraser {
+  position: absolute;
+  left: 70px;
+  width: 80px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #cccccc;
+  border-radius: 10px;
+  display: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"]::-moz-inner-spin-button,
+input[type="number"]::-moz-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.quantity input {
+  width: 60px;
+  height: 42px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 15px;
+  border: 1px solid #cccccc;
+}
+
+.quantity input:focus {
+  outline: 0;
+}
+
+.quantity-nav {
+  float: left;
+  position: relative;
+  height: 42px;
+}
+
+.quantity-button {
+  position: relative;
+  cursor: pointer;
+  border-left: 1px solid #eee;
+  width: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 13px;
+  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+  line-height: 1.7;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+.quantity-button.quantity-up {
+  background-color: #cccccc;
+  position: absolute;
+  height: 50%;
+  top: 0;
+  border-bottom: 1px solid #eee;
+}
+
+.quantity-button.quantity-down {
+  background-color: #cccccc;
+  position: absolute;
+  bottom: -1px;
+  height: 50%;
+}
+#erasor-none {
+  display: none;
+}
+/* text area */
+.text-options {
+  position: absolute;
+  width: 50px;
+  height: 150px;
+  left: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #cccccc;
+  /* display: none; */
+}
+.txt {
+  margin: auto;
+}
+.triangle-txt {
+  color: #cccccc;
+  position: absolute;
+  left: -15px;
+  transform: rotate(-90deg);
+  width: 20px;
+  height: 20px;
 }
