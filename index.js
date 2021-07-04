@@ -138,6 +138,14 @@ const states = [
 
 const state = "SELECT";
 
+let BG_COLOR = "#ffffff";
+
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+canvas.style.backgroundColor = BG_COLOR;
+canvas.width = window.innerWidth - 70;
+canvas.height = window.innerHeight - 80;
+
 const select = document.getElementById("select");
 const background = document.getElementById("background");
 const pattern = document.getElementById("pattern");
@@ -173,6 +181,16 @@ select.addEventListener("click", () => {
   console.log("hello");
 });
 
+function handleBackgroundColorEvents() {
+  const bgBtns = document.getElementsByClassName("bg-btn");
+  Array.from(bgBtns).forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      BG_COLOR = e.target.classList[2];
+      canvas.style.backgroundColor = BG_COLOR;
+    });
+  });
+}
+
 background.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -180,6 +198,7 @@ background.addEventListener("click", () => {
     }
   });
   backgroundElem.classList.remove("none");
+  handleBackgroundColorEvents();
 });
 
 pattern.addEventListener("click", () => {
