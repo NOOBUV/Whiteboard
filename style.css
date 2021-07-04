@@ -107,6 +107,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   border: 2px solid #eee;
   border-radius: 5px;
   padding-right: 50px;
+  background-color: white;
 }
 
 .btn {
@@ -216,14 +217,18 @@ input[type="color"]::-moz-color-swatch-wrapper {
 
 .pen-weight-input-container {
   flex: 0.8;
+  /* margin-top: 0.5rem; */
 }
-
+.pen-weight-input-container input[type="number"] {
+  width: 1.5rem;
+}
 .pen-weight-input {
   width: 15px;
   outline: none;
   font-size: 12px;
   height: 100%;
   margin: 0;
+  /* margin-top: 0.5rem; */
   border: none;
 }
 
@@ -324,7 +329,18 @@ input[type="color"]::-moz-color-swatch-wrapper {
   width: 20px;
   height: 20px;
 }
-
+.bg {
+  top: 42px;
+}
+.tscales {
+  top: 62px;
+}
+.tpen {
+  top: 127px;
+}
+.terase {
+  top: 220px;
+}
 .custom-eraser {
   position: absolute;
   left: 70px;
@@ -351,6 +367,9 @@ input[type="number"]::-moz-outer-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  width: 2rem;
+  text-align: center;
+  border: 1px solid #cccccc;
 }
 
 /* text area */
@@ -391,10 +410,17 @@ input[type="number"] {
 .right-tool-bar {
   /* display: flex; */
   /* flex-direction: column; */
+  background-color: white;
   position: absolute;
   top: 27%;
   right: 10px;
   padding: 5px;
   border: 2px solid #eee;
   border-radius: 5px;
+}
+
+/* Canvas */
+
+#canvas {
+  cursor: crosshair;
 }

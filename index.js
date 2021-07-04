@@ -1,93 +1,15 @@
-// window.addEventListener("load", () => {
-//   const canvas = document.getElementById("canvas");
-//   const ctx = canvas.getContext("2d");
-
-//   canvas.width = window.innerWidth;
-//   canvas.height = window.innerHeight;
-
-//   console.log(canvas.width);
-//   console.log(canvas.height);
-
-//   let painting = false;
-
-//   function startPosition(e) {
-//     painting = true;
-//     draw(e);
-//   }// window.addEventListener("load", () => {
-//   const canvas = document.getElementById("canvas");
-//   const ctx = canvas.getContext("2d");
-
-//   canvas.width = window.innerWidth;
-//   canvas.height = window.innerHeight;
-
-//   console.log(canvas.width);
-//   console.log(canvas.height);
-
-//   let painting = false;
-
-//   function startPosition(e) {
-//     painting = true;
-//     draw(e);
-//   }
-
-//   function finishedPosition() {
-//     painting = false;
-//     ctx.beginPath();
-//   }
-
-//   function draw(e) {
-//     if (!painting) {
-//       return;
-//     }
-
-//     ctx.lineWidth = 10;
-
-//     ctx.lineCap = "round";
-//     ctx.lineTo(e.clientX, e.clientY);
-//     ctx.stroke();
-//     ctx.beginPath();
-//     ctx.moveTo(e.clientX, e.clientY);
-//   }
-
-//   canvas.addEventListener("mousedown", startPosition);
-//   canvas.addEventListener("mouseup", finishedPosition);
-//   canvas.addEventListener("mousemove", draw);
-// });
-
-//   function finishedPosition() {
-//     painting = false;
-//     ctx.beginPath();
-//   }
-
-//   function draw(e) {
-//     if (!painting) {
-//       return;
-//     }
-
-//     ctx.lineWidth = 10;
-
-//     ctx.lineCap = "round";
-//     ctx.lineTo(e.clientX, e.clientY);
-//     ctx.stroke();
-//     ctx.beginPath();
-//     ctx.moveTo(e.clientX, e.clientY);
-//   }
-
-//   canvas.addEventListener("mousedown", startPosition);
-//   canvas.addEventListener("mouseup", finishedPosition);
-//   canvas.addEventListener("mousemove", draw);
-// });
-
-//Change Font weight of color
-
 const penWeightInput = document.querySelector(".pen-weight-input");
 
 function increaseFontSize(event) {
   penWeightInput.value++;
+  PENCIL_WIDTH = penWeightInput.value;
+  context.lineWidth = PENCIL_WIDTH;
 }
 
 function decreaseFontSize(event) {
   if (penWeightInput.value > 1) penWeightInput.value--;
+  PENCIL_WIDTH = penWeightInput.value;
+  context.lineWidth = PENCIL_WIDTH;
 }
 
 const eraserSize = document.querySelector(".eraser");
@@ -99,41 +21,6 @@ function increaseEraseSize(event) {
 function decreaseEraseSize(event) {
   if (eraserSize.value > 1) eraserSize.value--;
 }
-
-// // eraser js
-// jQuery(
-//   '<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>'
-// ).insertAfter(".quantity input");
-// jQuery(".quantity").each(function () {
-//   var spinner = jQuery(this),
-//     input = spinner.find('input[type="number"]'),
-//     btnUp = spinner.find(".quantity-up"),
-//     btnDown = spinner.find(".quantity-down"),
-//     min = input.attr("min"),
-//     max = input.attr("max");
-
-//   btnUp.click(function () {
-//     var oldValue = parseFloat(input.val());
-//     if (oldValue >= max) {
-//       var newVal = oldValue;
-//     } else {
-//       var newVal = oldValue + 1;
-//     }
-//     spinner.find("input").val(newVal);
-//     spinner.find("input").trigger("change");
-//   });
-
-//   btnDown.click(function () {
-//     var oldValue = parseFloat(input.val());
-//     if (oldValue <= min) {
-//       var newVal = oldValue;
-//     } else {
-//       var newVal = oldValue - 1;
-//     }
-//     spinner.find("input").val(newVal);
-//     spinner.find("input").trigger("change");
-//   });
-// });
 
 const states = [
   "SELECT",
@@ -147,23 +34,6 @@ const states = [
 ];
 
 const state = "SELECT";
-
-let BG_COLOR = "#ffffff";
-let PENCIL_COLOR = "#000000";
-let PENCIL_WIDTH = 10;
-
-const canvas = document.getElementById("canvas");
-const context = canvas.getContext("2d");
-canvas.style.backgroundColor = BG_COLOR;
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-console.log(window.innerHeight);
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-canvas.addEventListener("resize", resizeCanvas);
 
 const select = document.getElementById("select");
 const background = document.getElementById("background");
@@ -271,6 +141,67 @@ pencil.addEventListener("click", () => {
   handlePencileEvents();
 });
 
+function handleShapeEvents() {
+  const rectangle = document.getElementById("shapeRect");
+  rectangle.addEventListener("click", (e) => {
+    context.strokeRect(canvas.width / 2 - 100, canvas.height / 2, 400, 200);
+  });
+  const square = document.getElementById("shapeSquare");
+  square.addEventListener("click", (e) => {
+    context.strokeRect(canvas.width / 2, canvas.height / 2, 200, 200);
+  });
+  const circle = document.getElementById("shapeCircle");
+  circle.addEventListener("click", (e) => {
+    context.beginPath();
+    context.arc(
+      canvas.width / 2 - 50,
+      canvas.height / 2,
+      50,
+      0,
+      Math.PI * 2,
+      false
+    );
+    context.stroke();
+    context.beginPath();
+  });
+  const triangle = document.getElementById("shapeTriangle");
+  triangle.addEventListener("click", (e) => {
+    context.beginPath();
+    context.moveTo(canvas.width / 2, canvas.height / 2);
+    context.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 200);
+    context.lineTo(canvas.width / 2 - 100, canvas.height / 2 - 250);
+    context.closePath();
+    context.stroke();
+    context.beginPath();
+  });
+
+  const line = document.getElementById("shapeLine");
+  line.addEventListener("click", (e) => {
+    console.log(e.target);
+    context.beginPath();
+    context.moveTo(e.clientX, e.clientY);
+    context.lineTo(canvas.width / 2, canvas.height / 2);
+    context.stroke();
+    context.closePath();
+    context.beginPath();
+  });
+
+  const ellipse = document.getElementById("shapeEllipse");
+  ellipse.addEventListener("click", (e) => {
+    context.beginPath();
+    context.ellipse(
+      canvas.width / 2,
+      canvas.height / 2,
+      50,
+      75,
+      Math.PI / 2,
+      0,
+      2 * Math.PI
+    );
+    context.stroke();
+  });
+}
+
 shapes.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -278,6 +209,7 @@ shapes.addEventListener("click", () => {
     }
   });
   shapesElem.classList.remove("none");
+  handleShapeEvents();
 });
 
 text.addEventListener("click", () => {
@@ -289,6 +221,18 @@ text.addEventListener("click", () => {
   textElem.classList.remove("none");
 });
 
+function handleEraserEvents() {
+  const input = document.querySelector(".eraser");
+  var n = input.value;
+  n = Number(n);
+  if (n < 0) {
+    input.value = 0;
+  } else if (n > 50) {
+    input.value = 50;
+  }
+  context.lineWidth = input.value;
+}
+
 eraser.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -296,4 +240,56 @@ eraser.addEventListener("click", () => {
     }
   });
   eraserElem.classList.remove("none");
+  handleEraserEvents();
 });
+
+// Canvas
+
+let BG_COLOR = "#ffffff";
+let PENCIL_COLOR = "#000000";
+let PENCIL_WIDTH = penWeightInput.value;
+let PAINTING = false;
+
+const canvas = document.getElementById("canvas");
+const context = canvas.getContext("2d");
+canvas.style.backgroundColor = BG_COLOR;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+function handleMouseDown(e) {
+  PAINTING = true;
+  draw(e);
+}
+
+function handleMouseUp() {
+  PAINTING = false;
+  context.beginPath();
+}
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+function handleMouseMove(e) {
+  draw(e);
+}
+
+function draw(e) {
+  if (!PAINTING) {
+    return;
+  }
+
+  context.lineWidth = PENCIL_WIDTH;
+  context.lineCap = "round";
+
+  context.lineTo(e.clientX, e.clientY);
+  context.stroke();
+  context.beginPath();
+  context.moveTo(e.clientX, e.clientY);
+}
+
+canvas.addEventListener("mousedown", handleMouseDown);
+canvas.addEventListener("mouseup", handleMouseUp);
+canvas.addEventListener("mousemove", handleMouseMove);
+canvas.addEventListener("resize", resizeCanvas);
