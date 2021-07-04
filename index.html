@@ -21,9 +21,18 @@
       </div>
 
       <div class="right">
-        <div class="btn"><i class="fas fa-undo"></i></div>
-        <div class="btn"><i class="fas fa-redo"></i></div>
-        <div class="btn"><i class="fas fa-trash-alt"></i></div>
+        <div class="btn">
+          <i class="fas fa-undo"></i>
+          <span class="top-tooltip">Undo</span>
+        </div>
+        <div class="btn">
+          <i class="fas fa-redo"></i>
+          <span class="top-tooltip">Redo</span>
+        </div>
+        <div class="btn">
+          <i class="fas fa-trash-alt"></i>
+          <span class="top-tooltip">Delete</span>
+        </div>
       </div>
     </div>
     <div class="side-toolbar">
@@ -46,6 +55,21 @@
       <div class="eraser-tool btn" title="Eraser">
         <i class="fas fa-eraser"></i>
         <span class="tool-tooltip">Eraser</span>
+
+        <div class="custom-eraser">
+          <div class="triangle">▲</div>
+          <div class="quantity">
+            <input
+              type="number"
+              min="1"
+              max="50"
+              step="1"
+              value="1"
+              name="eraser"
+              id="eraser"
+            />
+          </div>
+        </div>
       </div>
       <div class="shape-tool btn" title="Shapes">
         <i class="fas fa-shapes"></i>
@@ -54,6 +78,12 @@
       <div class="text-tool btn" title="Text">
         <i class="fas fa-text-height"></i>
         <span class="tool-tooltip">Text</span>
+        <div class="text-options">
+          <div class="triangle-txt">▲</div>
+          <i class="fas fa-plus btn txt"></i>
+          <i class="fas fa-trash-alt btn txt"></i>
+          <i class="fas fa-bars btn txt"></i>
+        </div>
       </div>
       <div class="upload-img btn" title="Image">
         <i class="fas fa-image"></i>
@@ -96,6 +126,7 @@
         </div>
       </div>
     </div> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
