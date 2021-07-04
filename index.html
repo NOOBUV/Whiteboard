@@ -14,25 +14,11 @@
     ></script>
   </head>
   <body>
+    <canvas id="canvas"></canvas>
     <div class="topbar">
       <div class="brand">
         <img src="assets/diamond.png" alt="" class="logo" />
         <p class="brand-name">DJP Whiteboard</p>
-      </div>
-
-      <div class="right">
-        <div class="btn" id="undo">
-          <i class="fas fa-undo"></i>
-          <span class="top-tooltip">Undo</span>
-        </div>
-        <div class="btn" id="redo">
-          <i class="fas fa-redo"></i>
-          <span class="top-tooltip">Redo</span>
-        </div>
-        <div class="btn" id="clear">
-          <i class="fas fa-trash-alt"></i>
-          <span class="top-tooltip">Delete</span>
-        </div>
       </div>
     </div>
     <div class="main">
@@ -50,6 +36,7 @@
           <i class="fas fa-circle"></i>
           <!-- bg-color dropdown -->
           <div class="bg-color-dropdown none">
+            <div class="triangle bg">▲</div>
             <div class="btn">
               <div class="bg-btn style-background-color black"></div>
             </div>
@@ -66,6 +53,9 @@
               <div class="bg-btn style-background-color yellow"></div>
             </div>
             <div class="btn">
+              <div class="bg-btn style-background-color white"></div>
+            </div>
+            <div class="btn">
               <div class="grey">
                 <input type="color" id="bg-btn-input" />
               </div>
@@ -77,6 +67,7 @@
         <div class="background-image-tool btn" title="Pattern" id="pattern">
           <i class="fas fa-image"></i>
           <div class="bg-img-dropdown none">
+            <div class="triangle tscales">▲</div>
             <div class="btn">
               <div class="style-background-color black">
                 <img src="" alt="" />
@@ -103,6 +94,9 @@
               </div>
             </div>
             <div class="btn">
+              <div class="bg-btn style-background-color white"></div>
+            </div>
+            <div class="btn">
               <div class="grey">
                 <i class="fa fa-upload"></i>
               </div>
@@ -115,14 +109,18 @@
           <i class="fas fa-pen"></i>
           <!-- Pen Sub Tool -->
           <div class="pencil-sub-tools none">
-            <div class="btn">
-              <input type="color" class="pen-clr picker" value="#999999" />
-            </div>
+            <div class="triangle tpen">▲</div>
             <div class="btn">
               <div class="pen-clr black"></div>
             </div>
             <div class="btn">
               <div class="pen-clr red"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr green"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr blue"></div>
             </div>
             <div class="btn">
               <div class="pen-clr yellow"></div>
@@ -131,12 +129,14 @@
               <div class="pen-clr white"></div>
             </div>
             <div class="btn">
-              <div class="pen-clr blue"></div>
+              <input
+                type="color"
+                class="pen-clr picker"
+                value="#999999"
+                id="input-pen-color"
+              />
             </div>
-            <div class="btn">
-              <div class="pen-clr green"></div>
-            </div>
-            <div class="btn">
+            <div>
               <div class="pen-weight">
                 <div class="pen-weight-input-container">
                   <input
@@ -145,6 +145,7 @@
                     min="1"
                     max="50"
                     value="2"
+                    id="input-pen-width"
                   />
                 </div>
                 <div class="pen-weight-controls">
@@ -161,7 +162,8 @@
           <i class="fas fa-eraser"></i>
           <span class="tool-tooltip">Eraser</span>
 
-          <div class="btn eraser-ctr none">
+          <div class="eraser-ctr none">
+            <div class="triangle">▲</div>
             <div class="pen-weight">
               <div class="pen-weight-input-container">
                 <input
@@ -183,6 +185,7 @@
         <div class="shape-tool btn" title="Shapes" id="shapes">
           <i class="fas fa-shapes"></i>
           <div class="shape-display none">
+            <div class="triangle">▲</div>
             <div class="btn">
               <input type="color" id="shapeColor" />
             </div>
@@ -227,12 +230,25 @@
           <span class="tool-tooltip">Image</span>
         </div>
       </div>
-      <div class="canvas-container">
-        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="right-tool-bar">
+      <div class="right">
+        <div class="btn" id="undo" id="undo">
+          <i class="fas fa-undo"></i>
+          <span class="top-tooltip">Undo</span>
+        </div>
+        <div class="btn" id="redo" id="redo">
+          <i class="fas fa-redo"></i>
+          <span class="top-tooltip">Redo</span>
+        </div>
+        <div class="btn" id="clear" id="clear">
+          <i class="fas fa-trash-alt"></i>
+          <span class="top-tooltip">Delete</span>
+        </div>
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>
