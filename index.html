@@ -163,20 +163,24 @@
       <div class="eraser-tool btn" title="Eraser" id="eraser">
         <i class="fas fa-eraser"></i>
         <span class="tool-tooltip">Eraser</span>
-        <!-- <div class="custom-eraser none">
-          <div class="triangle">▲</div>
-          <div class="quantity">
-            <input
-              type="number"
-              min="1"
-              max="50"
-              step="1"
-              value="1"
-              name="eraser"
-              id="eraser"
-            />
+
+        <div class="btn eraser-ctr">
+          <div class="pen-weight">
+            <div class="pen-weight-input-container">
+              <input
+                type="number"
+                class="pen-weight-input eraser"
+                min="1"
+                max="50"
+                value="2"
+              />
+            </div>
+            <div class="pen-weight-controls">
+              <button onclick="increaseEraseSize(event)" class="">+</button>
+              <button onclick="decreaseEraseSize(event)">-</button>
+            </div>
           </div>
-        </div> -->
+        </div>
       </div>
 
       <div class="shape-tool btn" title="Shapes" id="shapes">
