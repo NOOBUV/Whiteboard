@@ -35,199 +35,200 @@
         </div>
       </div>
     </div>
-    <div class="side-toolbar">
-      <div class="select-tool btn" title="Select Tool" id="select">
-        <i class="fas fa-mouse-pointer"></i>
-        <span class="tool-tooltip">Select</span>
-      </div>
-
-      <div class="background-color-tool btn" title="Background" id="background">
-        <i class="fas fa-circle"></i>
-        <!-- bg-color dropdown -->
-        <div class="bg-color-dropdown none">
-          <div class="btn">
-            <div class="style-background-color"></div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color red"></div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color green"></div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color blue"></div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color yellow"></div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color yellow"></div>
-          </div>
-          <div class="btn">
-            <div class="grey">
-              <input type="color" />
-            </div>
-          </div>
+    <div class="main">
+      <div class="side-toolbar">
+        <div class="select-tool btn" title="Select Tool" id="select">
+          <i class="fas fa-mouse-pointer"></i>
+          <span class="tool-tooltip">Select</span>
         </div>
-        <span class="tool-tooltip">Background</span>
-      </div>
 
-      <div class="background-image-tool btn" title="Pattern" id="pattern">
-        <i class="fas fa-image"></i>
-        <div class="bg-img-dropdown none">
-          <div class="btn">
-            <div class="style-background-color black">
-              <img src="" alt="" />
+        <div
+          class="background-color-tool btn"
+          title="Background"
+          id="background"
+        >
+          <i class="fas fa-circle"></i>
+          <!-- bg-color dropdown -->
+          <div class="bg-color-dropdown none">
+            <div class="btn">
+              <div class="bg-btn style-background-color black"></div>
+            </div>
+            <div class="btn">
+              <div class="bg-btn style-background-color red"></div>
+            </div>
+            <div class="btn">
+              <div class="bg-btn style-background-color green"></div>
+            </div>
+            <div class="btn">
+              <div class="bg-btn style-background-color blue"></div>
+            </div>
+            <div class="btn">
+              <div class="bg-btn style-background-color yellow"></div>
+            </div>
+            <div class="btn">
+              <div class="grey">
+                <input type="color" id="bg-btn-input" />
+              </div>
             </div>
           </div>
-          <div class="btn">
-            <div class="style-background-color red">
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color green">
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color blue">
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color yellow">
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div class="btn">
-            <div class="style-background-color yellow">
-              <img src="" alt="" />
-            </div>
-          </div>
-          <div class="btn">
-            <div class="grey">
-              <i class="fa fa-upload"></i>
-            </div>
-          </div>
+          <span class="tool-tooltip">Background</span>
         </div>
-        <span class="tool-tooltip">Pattern</span>
-      </div>
 
-      <div class="pencil-tool btn" title="Pencil" id="pencil">
-        <i class="fas fa-pen"></i>
-        <!-- Pen Sub Tool -->
-        <div class="pencil-sub-tools none">
-          <div class="btn">
-            <input type="color" class="pen-clr picker" value="#999999" />
+        <div class="background-image-tool btn" title="Pattern" id="pattern">
+          <i class="fas fa-image"></i>
+          <div class="bg-img-dropdown none">
+            <div class="btn">
+              <div class="style-background-color black">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <div class="style-background-color red">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <div class="style-background-color green">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <div class="style-background-color blue">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <div class="style-background-color yellow">
+                <img src="" alt="" />
+              </div>
+            </div>
+            <div class="btn">
+              <div class="grey">
+                <i class="fa fa-upload"></i>
+              </div>
+            </div>
           </div>
-          <div class="btn">
-            <div class="pen-clr black"></div>
+          <span class="tool-tooltip">Pattern</span>
+        </div>
+
+        <div class="pencil-tool btn" title="Pencil" id="pencil">
+          <i class="fas fa-pen"></i>
+          <!-- Pen Sub Tool -->
+          <div class="pencil-sub-tools none">
+            <div class="btn">
+              <input type="color" class="pen-clr picker" value="#999999" />
+            </div>
+            <div class="btn">
+              <div class="pen-clr black"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr red"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr yellow"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr white"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr blue"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr green"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-weight">
+                <div class="pen-weight-input-container">
+                  <input
+                    type="number"
+                    class="pen-weight-input"
+                    min="1"
+                    max="50"
+                    value="2"
+                  />
+                </div>
+                <div class="pen-weight-controls">
+                  <button onclick="increaseFontSize(event)" class="">+</button>
+                  <button onclick="decreaseFontSize(event)">-</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="btn">
-            <div class="pen-clr red"></div>
-          </div>
-          <div class="btn">
-            <div class="pen-clr yellow"></div>
-          </div>
-          <div class="btn">
-            <div class="pen-clr white"></div>
-          </div>
-          <div class="btn">
-            <div class="pen-clr blue"></div>
-          </div>
-          <div class="btn">
-            <div class="pen-clr green"></div>
-          </div>
-          <div class="btn">
+          <span class="tool-tooltip">Pencil</span>
+        </div>
+
+        <div class="eraser-tool btn" title="Eraser" id="eraser">
+          <i class="fas fa-eraser"></i>
+          <span class="tool-tooltip">Eraser</span>
+
+          <div class="btn eraser-ctr">
             <div class="pen-weight">
               <div class="pen-weight-input-container">
                 <input
                   type="number"
-                  class="pen-weight-input"
+                  class="pen-weight-input eraser"
                   min="1"
                   max="50"
                   value="2"
                 />
               </div>
               <div class="pen-weight-controls">
-                <button onclick="increaseFontSize(event)" class="">+</button>
-                <button onclick="decreaseFontSize(event)">-</button>
+                <button onclick="increaseEraseSize(event)" class="">+</button>
+                <button onclick="decreaseEraseSize(event)">-</button>
               </div>
             </div>
           </div>
         </div>
-        <span class="tool-tooltip">Pencil</span>
-      </div>
 
-      <div class="eraser-tool btn" title="Eraser" id="eraser">
-        <i class="fas fa-eraser"></i>
-        <span class="tool-tooltip">Eraser</span>
-
-        <div class="btn eraser-ctr">
-          <div class="pen-weight">
-            <div class="pen-weight-input-container">
-              <input
-                type="number"
-                class="pen-weight-input eraser"
-                min="1"
-                max="50"
-                value="2"
-              />
+        <div class="shape-tool btn" title="Shapes" id="shapes">
+          <i class="fas fa-shapes"></i>
+          <div class="shape-display none">
+            <div class="btn">
+              <input type="color" id="shapeColor" />
             </div>
-            <div class="pen-weight-controls">
-              <button onclick="increaseEraseSize(event)" class="">+</button>
-              <button onclick="decreaseEraseSize(event)">-</button>
+            <div class="btn" id="shapeRect">
+              <img src="assets/shapeRect.png" title="Rectangle" />
+            </div>
+            <div class="btn" id="shapeSquare">
+              <img src="assets/shapeSquare.png" title="Square" />
+            </div>
+            <div class="btn" id="shapeCircle">
+              <img src="assets/shapeCircle.png" title="Circle" />
+            </div>
+            <div class="btn" id="shapeTriangle">
+              <img src="assets/shapeTriangle.png" title="Triangle" />
+            </div>
+            <div class="btn" id="shapeLine">
+              <img src="assets/shapeLine.png" title="Line" />
+            </div>
+            <div class="btn" id="shapeEllipse">
+              <img src="assets/shapeEllipse.png" title="Ellipse" />
+            </div>
+            <div class="btn" id="shapeDelete">
+              <i class="fas fa-trash-alt"></i>
             </div>
           </div>
+          <span class="tool-tooltip">Shapes</span>
         </div>
-      </div>
 
-      <div class="shape-tool btn" title="Shapes" id="shapes">
-        <i class="fas fa-shapes"></i>
-        <div class="shape-display none">
-          <div class="btn">
-            <input type="color" id="shapeColor" />
-          </div>
-          <div class="btn" id="shapeRect">
-            <img src="assets/shapeRect.png" title="Rectangle" />
-          </div>
-          <div class="btn" id="shapeSquare">
-            <img src="assets/shapeSquare.png" title="Square" />
-          </div>
-          <div class="btn" id="shapeCircle">
-            <img src="assets/shapeCircle.png" title="Circle" />
-          </div>
-          <div class="btn" id="shapeTriangle">
-            <img src="assets/shapeTriangle.png" title="Triangle" />
-          </div>
-          <div class="btn" id="shapeLine">
-            <img src="assets/shapeLine.png" title="Line" />
-          </div>
-          <div class="btn" id="shapeEllipse">
-            <img src="assets/shapeEllipse.png" title="Ellipse" />
-          </div>
-          <div class="btn" id="shapeDelete">
-            <i class="fas fa-trash-alt"></i>
+        <div class="text-tool btn" title="Text" id="text">
+          <i class="fas fa-text-height"></i>
+          <span class="tool-tooltip">Text</span>
+          <div class="text-options none">
+            <div class="triangle-txt">▲</div>
+            <i class="fas fa-plus btn txt"></i>
+            <i class="fas fa-trash-alt btn txt"></i>
+            <i class="fas fa-bars btn txt"></i>
           </div>
         </div>
-        <span class="tool-tooltip">Shapes</span>
-      </div>
 
-      <div class="text-tool btn" title="Text" id="text">
-        <i class="fas fa-text-height"></i>
-        <span class="tool-tooltip">Text</span>
-        <div class="text-options none">
-          <div class="triangle-txt">▲</div>
-          <i class="fas fa-plus btn txt"></i>
-          <i class="fas fa-trash-alt btn txt"></i>
-          <i class="fas fa-bars btn txt"></i>
+        <div class="upload-img btn" title="Image" id="image-upload">
+          <i class="fas fa-image"></i>
+          <span class="tool-tooltip">Image</span>
         </div>
       </div>
-
-      <div class="upload-img btn" title="Image" id="image-upload">
-        <i class="fas fa-image"></i>
-        <span class="tool-tooltip">Image</span>
+      <div class="canvas-container">
+        <canvas id="canvas"></canvas>
       </div>
     </div>
 
