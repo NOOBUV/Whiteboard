@@ -14,25 +14,11 @@
     ></script>
   </head>
   <body>
+    <canvas id="canvas"></canvas>
     <div class="topbar">
       <div class="brand">
         <img src="assets/diamond.png" alt="" class="logo" />
         <p class="brand-name">DJP Whiteboard</p>
-      </div>
-
-      <div class="right">
-        <div class="btn" id="undo">
-          <i class="fas fa-undo"></i>
-          <span class="top-tooltip">Undo</span>
-        </div>
-        <div class="btn" id="redo">
-          <i class="fas fa-redo"></i>
-          <span class="top-tooltip">Redo</span>
-        </div>
-        <div class="btn" id="clear">
-          <i class="fas fa-trash-alt"></i>
-          <span class="top-tooltip">Delete</span>
-        </div>
       </div>
     </div>
     <div class="main">
@@ -64,6 +50,9 @@
             </div>
             <div class="btn">
               <div class="bg-btn style-background-color yellow"></div>
+            </div>
+            <div class="btn">
+              <div class="bg-btn style-background-color white"></div>
             </div>
             <div class="btn">
               <div class="grey">
@@ -103,6 +92,9 @@
               </div>
             </div>
             <div class="btn">
+              <div class="bg-btn style-background-color white"></div>
+            </div>
+            <div class="btn">
               <div class="grey">
                 <i class="fa fa-upload"></i>
               </div>
@@ -116,13 +108,16 @@
           <!-- Pen Sub Tool -->
           <div class="pencil-sub-tools none">
             <div class="btn">
-              <input type="color" class="pen-clr picker" value="#999999" />
-            </div>
-            <div class="btn">
               <div class="pen-clr black"></div>
             </div>
             <div class="btn">
               <div class="pen-clr red"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr green"></div>
+            </div>
+            <div class="btn">
+              <div class="pen-clr blue"></div>
             </div>
             <div class="btn">
               <div class="pen-clr yellow"></div>
@@ -131,10 +126,12 @@
               <div class="pen-clr white"></div>
             </div>
             <div class="btn">
-              <div class="pen-clr blue"></div>
-            </div>
-            <div class="btn">
-              <div class="pen-clr green"></div>
+              <input
+                type="color"
+                class="pen-clr picker"
+                value="#999999"
+                id="input-pen-color"
+              />
             </div>
             <div class="btn">
               <div class="pen-weight">
@@ -145,6 +142,7 @@
                     min="1"
                     max="50"
                     value="2"
+                    id="input-pen-width"
                   />
                 </div>
                 <div class="pen-weight-controls">
@@ -227,12 +225,25 @@
           <span class="tool-tooltip">Image</span>
         </div>
       </div>
-      <div class="canvas-container">
-        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="right-tool-bar">
+      <div class="right">
+        <div class="btn" id="undo" id="undo">
+          <i class="fas fa-undo"></i>
+          <span class="top-tooltip">Undo</span>
+        </div>
+        <div class="btn" id="redo" id="redo">
+          <i class="fas fa-redo"></i>
+          <span class="top-tooltip">Redo</span>
+        </div>
+        <div class="btn" id="clear" id="clear">
+          <i class="fas fa-trash-alt"></i>
+          <span class="top-tooltip">Delete</span>
+        </div>
       </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>

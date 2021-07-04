@@ -149,12 +149,14 @@ const states = [
 const state = "SELECT";
 
 let BG_COLOR = "#ffffff";
+let PENCIL_COLOR = "#000000";
+let PENCIL_WIDTH = 10;
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 canvas.style.backgroundColor = BG_COLOR;
-canvas.width = window.innerWidth - 70;
-canvas.height = window.innerHeight - 80;
+context.width = window.innerWidth;
+context.height = window.innerHeight;
 
 const select = document.getElementById("select");
 const background = document.getElementById("background");
@@ -201,6 +203,11 @@ function handleBackgroundColorEvents() {
       canvas.style.backgroundColor = BG_COLOR;
     });
   });
+  const input = document.getElementById("bg-btn-input");
+  input.addEventListener("input", () => {
+    BG_COLOR = input.value;
+    canvas.style.backgroundColor = BG_COLOR;
+  });
 }
 
 background.addEventListener("click", () => {
@@ -222,6 +229,31 @@ pattern.addEventListener("click", () => {
   patternElem.classList.remove("none");
 });
 
+function handlePencileEvents(e) {
+  const inputColorBtns = document.getElementsByClassName("pen-clr");
+  Array.from(inputColorBtns).forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      PENCIL_COLOR = e.target.classList[1];
+      context.strokeStyle = PENCIL_COLOR;
+      console.log(context.strokeStyle);
+    });
+  });
+
+  const pencilColor = document.getElementById("input-pen-color");
+  pencilColor.addEventListener("input", () => {
+    PENCIL_COLOR = pencilColor.value;
+    context.strokeStyle = PENCIL_COLOR;
+    console.log(context.strokeStyle);
+  });
+
+  const pencilWidth = document.getElementById("input-pen-width");
+  pencilWidth.addEventListener("input", () => {
+    PENCIL_WIDTH = pencilWidth.value;
+    context.lineWidth = PENCIL_WIDTH;
+    console.log(context.lineWidth);
+  });
+}
+
 pencil.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -229,6 +261,7 @@ pencil.addEventListener("click", () => {
     }
   });
   pencilElem.classList.remove("none");
+  handlePencileEvents();
 });
 
 shapes.addEventListener("click", () => {
