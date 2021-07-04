@@ -288,6 +288,14 @@ function draw(e) {
   context.beginPath();
   context.moveTo(e.clientX, e.clientY);
 }
+/***clear screen**/
+function cleanScreen() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+}
+clear.addEventListener("click",() => {
+  
+  cleanScreen();
+});
 
 canvas.addEventListener("mousedown", handleMouseDown);
 canvas.addEventListener("mouseup", handleMouseUp);
