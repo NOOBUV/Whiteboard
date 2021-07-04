@@ -161,6 +161,10 @@ input[type="color"]::-moz-color-swatch-wrapper {
   border-radius: 5px;
   border: 2px solid #ddd;
   padding: 5px;
+  position: absolute;
+  top: -150px;
+  left: 70px;
+  display: none;
 }
 
 .picker {
@@ -247,7 +251,9 @@ input[type="color"]::-moz-color-swatch-wrapper {
   left: 60px;
   border: 1px solid black;
   border-radius: 0.5rem;
-=======
+  display: none;
+}
+
 /* eraser tool */
 
 .triangle {
@@ -356,7 +362,7 @@ input[type="number"] {
   flex-direction: column;
   justify-content: center;
   border: 1px solid #cccccc;
-  /* display: none; */
+  display: none;
 }
 .txt {
   margin: auto;

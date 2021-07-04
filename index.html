@@ -50,8 +50,45 @@
       </div>
       <div class="pencil-tool btn" title="Pencil">
         <i class="fas fa-pen"></i>
+
+        <!-- Pen Sub Tool -->
+        <div class="pencil-sub-tools">
+          <div class="btn">
+            <input type="color" class="pen-clr picker" value="#999999" />
+          </div>
+          <div class="btn">
+            <div class="pen-clr black"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-clr red"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-clr yellow"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-clr white"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-clr blue"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-clr green"></div>
+          </div>
+          <div class="btn">
+            <div class="pen-weight">
+              <div class="pen-weight-input-container">
+                <input type="text" class="pen-weight-input" value="2" />
+              </div>
+              <div class="pen-weight-controls">
+                <button onclick="increaseFontSize(event)" class="">+</button>
+                <button onclick="decreaseFontSize(event)">-</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <span class="tool-tooltip">Pencil</span>
       </div>
+
       <div class="eraser-tool btn" title="Eraser">
         <i class="fas fa-eraser"></i>
         <span class="tool-tooltip">Eraser</span>
@@ -118,41 +155,6 @@
       </div>
     </div>
 
-    <!-- Pen Sub Tool -->
-    <!-- <div class="pencil-sub-tools">
-      <div class="btn">
-        <input type="color" class="pen-clr picker" value="#999999" />
-      </div>
-      <div class="btn">
-        <div class="pen-clr black"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-clr red"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-clr yellow"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-clr white"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-clr blue"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-clr green"></div>
-      </div>
-      <div class="btn">
-        <div class="pen-weight">
-          <div class="pen-weight-input-container">
-            <input type="text" class="pen-weight-input" value="2" />
-          </div>
-          <div class="pen-weight-controls">
-            <button onclick="increaseFontSize(event)" class="">+</button>
-            <button onclick="decreaseFontSize(event)">-</button>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./index.js"></script>
   </body>
