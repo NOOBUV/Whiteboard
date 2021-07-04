@@ -173,6 +173,7 @@ const patternElem = document.getElementsByClassName("bg-img-dropdown")[0];
 const pencilElem = document.getElementsByClassName("pencil-sub-tools")[0];
 const shapesElem = document.getElementsByClassName("shape-display")[0];
 const textElem = document.getElementsByClassName("text-options")[0];
+const eraserElem = document.getElementsByClassName("eraser-ctr")[0];
 
 const arrayOfTools = [
   backgroundElem,
@@ -180,6 +181,7 @@ const arrayOfTools = [
   pencilElem,
   shapesElem,
   textElem,
+  eraserElem,
 ];
 
 select.addEventListener("click", () => {
@@ -245,4 +247,13 @@ text.addEventListener("click", () => {
     }
   });
   textElem.classList.remove("none");
+});
+
+eraser.addEventListener("click", () => {
+  arrayOfTools.forEach((tool) => {
+    if (!tool.classList.contains("none")) {
+      tool.classList.add("none");
+    }
+  });
+  eraserElem.classList.remove("none");
 });
