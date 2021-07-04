@@ -77,3 +77,15 @@
 //   canvas.addEventListener("mouseup", finishedPosition);
 //   canvas.addEventListener("mousemove", draw);
 // });
+
+//Change Font weight of color
+
+const penWeightInput = document.querySelector(".pen-weight-input");
+
+function increaseFontSize(event) {
+  penWeightInput.value++;
+}
+
+function decreaseFontSize(event) {
+  if (penWeightInput.value > 1) penWeightInput.value--;
+}
