@@ -110,6 +110,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  position: relative;
 }
 
 .btn:hover {
@@ -117,9 +118,26 @@ input[type="color"]::-moz-color-swatch-wrapper {
   transition: background-color 0.3s ease-in;
 }
 
+.btn:hover .tool-tooltip {
+  display: block;
+}
+
 .style-background-color {
   background-color: black;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
+}
+
+.tool-tooltip {
+  display: none;
+  background: #000;
+  position: absolute;
+  top: 5px;
+  left: 40px;
+  width: auto;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 0.2rem;
+  z-index: 100;
 }
