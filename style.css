@@ -8,7 +8,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   text-align: center;
 }
 
@@ -63,26 +63,26 @@ input[type="color"]::-moz-color-swatch-wrapper {
   display: flex;
   position: absolute;
   top: 0;
-  left: 40%;
+  left: 48%;
   z-index: 100;
+  margin-top: 10px;
 }
 
 /*------brand-----*/
 .brand {
   display: flex;
-  width: 40%;
   justify-content: flex-start;
   align-items: center;
   font-family: "Ubuntu", sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
-  min-width: 270px;
+  user-select: none;
+  /* min-width: 270px; */
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  margin: auto 10px;
+  width: 100px;
+  /* margin: auto 10px; */
 }
 /*-----------------------------*/
 
