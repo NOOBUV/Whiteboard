@@ -804,3 +804,16 @@ function onTouchEnd(event) {
   singleTouch = false;
   doubleTouch = false;
 }
+
+// Model
+
+let popUp = true;
+
+function makePopUp(p) {
+  if (popUp) {
+    document.getElementsByClassName("btn btn-primary")[0].click();
+    popUp = false;
+  }
+}
+
+document.querySelector(".infi-btn").addEventListener("click", makePopUp);
