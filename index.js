@@ -357,10 +357,41 @@ function draw(e) {
   context.beginPath();
   context.moveTo(e.clientX, e.clientY);
 }
-
+/*****************************Erase*************************/
 function erase(e) {
-  context.clearRect(e.clientX, e.clientY, ERASER_SIZE + 0.1, ERASER_SIZE + 0.1);
+  
+  context.lineWidth = ERASER_SIZE;
+  context.lineCap = "round";
+
+  context.lineTo(e.clientX, e.clientY);
+  context.lineWidth = ERASER_SIZE
+  context.lineCap = "round";
+  context.globalCompositeOperation = "destination-out"
+  // context.strokeStyle = 'transparent';
+  context.strokeStyle = BG_COLOR;
+  context.stroke();
+  context.beginPath();
+  context.moveTo(e.clientX, e.clientY);
+
+
+  // context.beginPath();
+  
+  // context.clearRect(e.clientX, e.clientY, ERASER_SIZE + 0.1, ERASER_SIZE + 0.1);
+  // context.closePath();
+  // old = {x: e.offsetX, y: e.offsetY};
+  // context.beginPath();
+  //   context.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+  //   context.fill();
+
+  //   context.lineWidth = 20;
+  //   context.beginPath();
+  //   context.moveTo();
+  //   context.lineTo(x, y);
+  //   context.stroke();
+  
+ 
 }
+
 
 /***clear screen**/
 function cleanScreen() {
