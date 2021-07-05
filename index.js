@@ -311,9 +311,10 @@ let PENCIL_WIDTH = penWeightInput.value;
 let PAINTING = false;
 let ERASER_SIZE = eraserSize.value;
 let mode = true;
-
-const previousState = [];
-const futureState = [];
+let previousState = [];
+let futureState = [];
+let CURRENT_STATE = null;
+let maxLength = 0;
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -329,6 +330,7 @@ function handleMouseDown(e) {
 function handleMouseUp() {
   PAINTING = false;
   previousState.push(context.getImageData(0, 0, canvas.width, canvas.height));
+  maxLength++;
 
   // if (previousState.length > 2) context.putImageData(previousState[0], 0, 0);
   context.beginPath();
@@ -398,30 +400,34 @@ clear.addEventListener("click", () => {
 
 // Undo and Redo
 
-function undoCanvas() {
-  if (previousState.length < 1) return;
-
-  if (previousState.length == 1) {
-    previousState.pop();
-    context.clearRect(0, 0, canvas.width, canvas.height);
+function undoCanvas(justSomethingRandom) {
+  if (previousState.length < 1) {
+    previousState = [];
+    CURRENT_STATE = null;
+    if (CURRENT_STATE != null) futureState.push(CURRENT_STATE);
+    cleanScreen();
     return;
   }
+
+  if (maxLength == previousState.length && justSomethingRandom) {
+    undoCanvas(false);
+  }
+
+  console.log("Done");
+
+  console.log(previousState);
   let tempState = previousState.pop();
   futureState.push(tempState);
-  context.putImageData(previousState[previousState.length - 1], 0, 0);
+  context.putImageData(tempState, 0, 0);
 }
 
 function redoCanvas() {
-  if (previousState.length < 0) return;
-
-  // if (previousState.length == 1) {
-  //   previousState.pop();
-  //   context.clearRect(0, 0, canvas.width, canvas.height);
-  //   return;
-  // }
+  if (futureState.length < 1) return;
   let tempState = futureState.pop();
   previousState.push(tempState);
   context.putImageData(tempState, 0, 0);
+
+  // console.log(futureState);
 }
 
 canvas.addEventListener("mousedown", handleMouseDown);
@@ -437,7 +443,7 @@ document.querySelector(".eraser-tool").addEventListener("click", () => {
 });
 
 document.getElementById("undo").addEventListener("click", () => {
-  undoCanvas();
+  undoCanvas(true);
 });
 
 document.getElementById("redo").addEventListener("click", () => {
