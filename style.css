@@ -203,6 +203,14 @@ input[type="color"]::-moz-color-swatch-wrapper {
   background-color: red;
 }
 
+.C78585 {
+  background-color: #c78585;
+}
+
+.C7853F {
+  background-color: #c7853f;
+}
+
 .green {
   background-color: green;
 }
@@ -318,7 +326,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   padding: 0.4rem;
   flex-direction: column;
   position: absolute;
-  top: -180px;
+  top: 30px;
   left: 70px;
   border: 1px solid black;
   border-radius: 0.5rem;
@@ -424,7 +432,7 @@ input[type="number"] {
 
 .main {
   position: absolute;
-  top: 100px;
+  top: 30px;
   left: 10px;
 }
 
@@ -454,5 +462,14 @@ label {
   color: #fff;
 }
 input[type="file"] {
+  display: none;
+}
+/* .fa-upload {
+  color: white;
+} */
+.text-tool {
+  display: none;
+}
+.shape-tool {
   display: none;
 }

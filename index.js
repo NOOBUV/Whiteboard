@@ -80,6 +80,9 @@ function handleBackgroundColorEvents() {
   Array.from(bgBtns).forEach((btn) => {
     btn.addEventListener("click", (e) => {
       BG_COLOR = e.target.classList[2];
+      if (BG_COLOR === "C78585" || BG_COLOR === "C7853F") {
+        BG_COLOR = "#" + BG_COLOR;
+      }
       canvas.style.backgroundColor = BG_COLOR;
     });
   });
@@ -459,47 +462,44 @@ document.getElementById("redo").addEventListener("click", () => {
   redoCanvas();
 });
 
-document.getElementById("add-text").onclick = function (e) {
-  document.getElementById("canvas").onclick = function (e) {
-    addInput(e.clientX, e.clientY);
-  };
-};
+//font = '38px sans-serif';
+// document.getElementById("add-text").onclick = function (e) {
+//   document.getElementById("canvas").onclick = function (e) {
+//     addInput(e.clientX, e.clientY);
+//   };
+// };
 
-function addInput(x, y) {
-  var input = document.createElement("input");
+// function addInput(x, y) {
+//   var input = document.createElement("input");
 
-  input.type = "text";
-  input.style.position = "fixed";
-  input.style.left = x - 100 + "px";
-  input.style.top = y - 100 + "px";
-  input.style.border = "none";
-  // input.style.size="38px";
+//   input.type = "text";
+//   input.style.position = "fixed";
+//   input.style.left = x - 4 + "px";
+//   input.style.top = y - 4 + "px";
+//   input.style.border = "none";
+//   // input.style.size="38px";
 
-  input.onkeydown = handleEnter;
+//   input.onkeydown = handleEnter;
 
-  document.body.appendChild(input);
+//   document.body.appendChild(input);
 
-  input.focus();
-}
+//   input.focus();
+// }
 
-//Key handler for input box:
-function handleEnter(e) {
-  var keyCode = e.keyCode;
-  if (keyCode === 13) {
-    drawText(
-      this.value,
-      parseInt(this.style.left, 10),
-      parseInt(this.style.top, 10)
-    );
-    document.body.removeChild(this);
-  }
-}
+// //Key handler for input box:
+// function handleEnter(e) {
+//   var keyCode = e.keyCode;
+//   if (keyCode === 13) {
+//     drawText( this.value, parseInt(this.style.left, 10), parseInt(this.style.top, 10));
+//     document.body.removeChild(this);
+//   }
+// }
 
-//Draw the text onto canvas:
-function drawText(txt, x, y) {
-  context.textBaseline = "top";
-  context.textAlign = "left";
-  context.font = font;
+// //Draw the text onto canvas:
+// function drawText(txt, x, y) {
+//   context.textBaseline = "top";
+//   context.textAlign = "left";
+//   context.font = font;
 
-  context.fillText(txt, x - 50, y - 50);
-}
+//   context.fillText(txt, x - 4, y - 4);
+// }
