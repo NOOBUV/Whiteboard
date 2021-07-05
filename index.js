@@ -99,6 +99,54 @@ background.addEventListener("click", () => {
   handleBackgroundColorEvents();
 });
 
+function handlePatternEvents() {
+  const bgImgBtns = document.getElementsByClassName("bg-img-btn");
+  Array.from(bgImgBtns).forEach((imgBtn) => {
+    imgBtn.addEventListener("click", (e) => {
+      let data = e.target.querySelector("[data-pattern]");
+      if (data === null) {
+        data = e.target;
+      }
+      const img = new Image();
+      img.src = `assets/${data.dataset.pattern}.png`;
+      context.drawImage(
+        img,
+        0,
+        0,
+        img.width,
+        img.height,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+      console.log(data.dataset.pattern);
+    });
+  });
+
+  const uploadImgBtn = document.getElementById("upload-bg-img");
+  uploadImgBtn.addEventListener("change", (e) => {
+    e.stopPropagation();
+    const reader = new FileReader();
+    const preview = document.getElementById("preview");
+    reader.onload = function (e) {
+      preview.setAttribute("src", e.target.result);
+    };
+    reader.readAsDataURL(uploadImgBtn.files[0]);
+    context.drawImage(
+      preview,
+      0,
+      0,
+      preview.width,
+      preview.height,
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+  });
+}
+
 pattern.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -106,6 +154,7 @@ pattern.addEventListener("click", () => {
     }
   });
   patternElem.classList.remove("none");
+  handlePatternEvents();
 });
 
 function handlePencileEvents(e) {
@@ -214,6 +263,14 @@ shapes.addEventListener("click", () => {
   handleShapeEvents();
 });
 
+function handleTextEvents() {
+  const addText = document.getElementById("add-text");
+  const removeText = document.getElementById("delete-text");
+  addText.addEventListener("click", (e) => {
+    context.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
+  });
+}
+
 text.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -221,6 +278,7 @@ text.addEventListener("click", () => {
     }
   });
   textElem.classList.remove("none");
+  handleTextEvents();
 });
 
 function handleEraserEvents() {

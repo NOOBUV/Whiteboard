@@ -14,8 +14,9 @@
     ></script>
   </head>
   <body>
-    <canvas id="canvas"></canvas>
-    <img src="" id="preview" alt="" />
+    <canvas id="canvas">
+      <img src="" id="preview" alt="" />
+    </canvas>
     <div class="topbar">
       <div class="brand">
         <img src="./assets/logo.png" alt="" class="logo" />
@@ -68,37 +69,58 @@
           <i class="fas fa-image"></i>
           <div class="bg-img-dropdown none">
             <div class="triangle tscales">▲</div>
-            <div class="btn">
-              <div class="style-background-color black">
-                <img src="" alt="" />
-              </div>
+            <div class="btn bg-img-btn">
+              <img
+                src="assets/box_pattern.png"
+                alt="box_pattern"
+                data-pattern="box_pattern"
+              />
             </div>
-            <div class="btn">
-              <div class="style-background-color red">
-                <img src="" alt="" />
-              </div>
+            <div class="btn bg-img-btn">
+              <img
+                src="assets/graph_pattern.png"
+                alt="graph_pattern"
+                data-pattern="graph_pattern"
+              />
             </div>
-            <div class="btn">
-              <div class="style-background-color green">
-                <img src="" alt="" />
-              </div>
+            <div class="btn bg-img-btn">
+              <img
+                src="assets/dotted_pattern.png"
+                alt="dotted_pattern"
+                data-pattern="dotted_pattern"
+              />
             </div>
-            <div class="btn">
-              <div class="style-background-color blue">
-                <img src="" alt="" />
-              </div>
+            <div class="btn bg-img-btn">
+              <img
+                src="assets/transparent_pattern.png"
+                alt="transparent_pattern"
+                data-pattern="transparent_pattern"
+              />
             </div>
-            <div class="btn">
-              <div class="style-background-color yellow">
-                <img src="" alt="" />
-              </div>
-            </div>
-            <div class="btn">
-              <div class="bg-btn style-background-color white"></div>
+            <div class="btn bg-img-btn">
+              <img
+                src="assets/hr_pattern.png"
+                alt="hr_pattern"
+                data-pattern="hr_pattern"
+              />
             </div>
             <div class="btn">
               <div class="grey">
-                <i class="fa fa-upload"></i>
+                <!-- <input
+                  type="file"
+                  accept=".jpg, .jpeg, .png"
+                  class="custom-file-input"
+                  id="upload-bg-img"
+                /> -->
+                <label>
+                  <i class="fa fa-upload" aria-hidden="true"></i>
+                  <input
+                    type="file"
+                    size="60"
+                    accept=".jpg, .jpeg, .png"
+                    id="upload-bg-img"
+                  />
+                </label>
               </div>
             </div>
           </div>
@@ -219,9 +241,12 @@
           <span class="tool-tooltip">Text</span>
           <div class="text-options none">
             <div class="triangle-txt">▲</div>
-            <i class="fas fa-plus btn txt"></i>
-            <i class="fas fa-trash-alt btn txt"></i>
-            <i class="fas fa-bars btn txt"></i>
+            <i class="fas fa-plus custom-button txt" id="add-text"></i>
+            <i class="fas fa-trash-alt custom-button txt" id="delete-text"></i>
+            <i
+              class="fas fa-bars btn custom-button txt"
+              id="more-options-text"
+            ></i>
           </div>
         </div>
 
