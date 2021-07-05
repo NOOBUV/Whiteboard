@@ -359,23 +359,21 @@ function draw(e) {
 }
 /*****************************Erase*************************/
 function erase(e) {
-  
   context.lineWidth = ERASER_SIZE;
   context.lineCap = "round";
 
   context.lineTo(e.clientX, e.clientY);
-  context.lineWidth = ERASER_SIZE
+  context.lineWidth = ERASER_SIZE;
   context.lineCap = "round";
-  context.globalCompositeOperation = "destination-out"
+  context.globalCompositeOperation = "destination-out";
   // context.strokeStyle = 'transparent';
   context.strokeStyle = BG_COLOR;
   context.stroke();
   context.beginPath();
   context.moveTo(e.clientX, e.clientY);
 
-
   // context.beginPath();
-  
+
   // context.clearRect(e.clientX, e.clientY, ERASER_SIZE + 0.1, ERASER_SIZE + 0.1);
   // context.closePath();
   // old = {x: e.offsetX, y: e.offsetY};
@@ -388,10 +386,7 @@ function erase(e) {
   //   context.moveTo();
   //   context.lineTo(x, y);
   //   context.stroke();
-  
- 
 }
-
 
 /***clear screen**/
 function cleanScreen() {
@@ -435,6 +430,7 @@ canvas.addEventListener("mousemove", handleMouseMove);
 window.addEventListener("resize", resizeCanvas);
 document.querySelector(".pencil-tool").addEventListener("click", () => {
   mode = true;
+  context.globalCompositeOperation = "source-over";
 });
 document.querySelector(".eraser-tool").addEventListener("click", () => {
   mode = false;
