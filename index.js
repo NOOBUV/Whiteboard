@@ -36,6 +36,7 @@ const states = [
 ];
 
 const state = "SELECT";
+let shape = false;
 
 const select = document.getElementById("select");
 const background = document.getElementById("background");
@@ -193,25 +194,33 @@ pencil.addEventListener("click", () => {
 });
 
 function handleShapeEvents() {
+  shape = true;
+  const shapeColor = document.getElementById("shapeColor");
+  shapeColor.addEventListener("input", (e) => {
+    context.strokeStyle = e.target.value;
+  });
   const rectangle = document.getElementById("shapeRect");
   rectangle.addEventListener("click", (e) => {
-    context.strokeRect(canvas.width / 2 - 100, canvas.height / 2, 400, 200);
+    context.strokeRect(
+      canvas.width / 2 - 100,
+      canvas.height / 2,
+      e.clientX,
+      e.clientY
+    );
   });
   const square = document.getElementById("shapeSquare");
   square.addEventListener("click", (e) => {
-    context.strokeRect(canvas.width / 2, canvas.height / 2, 200, 200);
+    context.strokeRect(
+      canvas.width / 2,
+      canvas.height / 2,
+      e.clientX,
+      e.clientY
+    );
   });
   const circle = document.getElementById("shapeCircle");
   circle.addEventListener("click", (e) => {
     context.beginPath();
-    context.arc(
-      canvas.width / 2 - 50,
-      canvas.height / 2,
-      50,
-      0,
-      Math.PI * 2,
-      false
-    );
+    context.arc(e.clientX, e.clientY, 80, 0, Math.PI * 2, false);
     context.stroke();
     context.beginPath();
   });
@@ -311,9 +320,10 @@ let PENCIL_WIDTH = penWeightInput.value;
 let PAINTING = false;
 let ERASER_SIZE = eraserSize.value;
 let mode = true;
-
-const previousState = [];
-const futureState = [];
+let previousState = [];
+let futureState = [];
+let CURRENT_STATE = null;
+let maxLength = 0;
 
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
@@ -329,6 +339,7 @@ function handleMouseDown(e) {
 function handleMouseUp() {
   PAINTING = false;
   previousState.push(context.getImageData(0, 0, canvas.width, canvas.height));
+  maxLength++;
 
   // if (previousState.length > 2) context.putImageData(previousState[0], 0, 0);
   context.beginPath();
@@ -357,9 +368,35 @@ function draw(e) {
   context.beginPath();
   context.moveTo(e.clientX, e.clientY);
 }
-
+/*****************************Erase*************************/
 function erase(e) {
-  context.clearRect(e.clientX, e.clientY, ERASER_SIZE + 0.1, ERASER_SIZE + 0.1);
+  context.lineWidth = ERASER_SIZE;
+  context.lineCap = "round";
+
+  context.lineTo(e.clientX, e.clientY);
+  context.lineWidth = ERASER_SIZE;
+  context.lineCap = "round";
+  context.globalCompositeOperation = "destination-out";
+  // context.strokeStyle = 'transparent';
+  context.strokeStyle = BG_COLOR;
+  context.stroke();
+  context.beginPath();
+  context.moveTo(e.clientX, e.clientY);
+
+  // context.beginPath();
+
+  // context.clearRect(e.clientX, e.clientY, ERASER_SIZE + 0.1, ERASER_SIZE + 0.1);
+  // context.closePath();
+  // old = {x: e.offsetX, y: e.offsetY};
+  // context.beginPath();
+  //   context.arc(e.clientX, e.clientY, 10, 0, 2 * Math.PI);
+  //   context.fill();
+
+  //   context.lineWidth = 20;
+  //   context.beginPath();
+  //   context.moveTo();
+  //   context.lineTo(x, y);
+  //   context.stroke();
 }
 
 /***clear screen**/
@@ -372,30 +409,34 @@ clear.addEventListener("click", () => {
 
 // Undo and Redo
 
-function undoCanvas() {
-  if (previousState.length < 1) return;
-
-  if (previousState.length == 1) {
-    previousState.pop();
-    context.clearRect(0, 0, canvas.width, canvas.height);
+function undoCanvas(justSomethingRandom) {
+  if (previousState.length < 1) {
+    previousState = [];
+    CURRENT_STATE = null;
+    if (CURRENT_STATE != null) futureState.push(CURRENT_STATE);
+    cleanScreen();
     return;
   }
+
+  if (maxLength == previousState.length && justSomethingRandom) {
+    undoCanvas(false);
+  }
+
+  console.log("Done");
+
+  console.log(previousState);
   let tempState = previousState.pop();
   futureState.push(tempState);
-  context.putImageData(previousState[previousState.length - 1], 0, 0);
+  context.putImageData(tempState, 0, 0);
 }
 
 function redoCanvas() {
-  if (previousState.length < 0) return;
-
-  // if (previousState.length == 1) {
-  //   previousState.pop();
-  //   context.clearRect(0, 0, canvas.width, canvas.height);
-  //   return;
-  // }
+  if (futureState.length < 1) return;
   let tempState = futureState.pop();
   previousState.push(tempState);
   context.putImageData(tempState, 0, 0);
+
+  // console.log(futureState);
 }
 
 canvas.addEventListener("mousedown", handleMouseDown);
@@ -404,13 +445,14 @@ canvas.addEventListener("mousemove", handleMouseMove);
 window.addEventListener("resize", resizeCanvas);
 document.querySelector(".pencil-tool").addEventListener("click", () => {
   mode = true;
+  context.globalCompositeOperation = "source-over";
 });
 document.querySelector(".eraser-tool").addEventListener("click", () => {
   mode = false;
 });
 
 document.getElementById("undo").addEventListener("click", () => {
-  undoCanvas();
+  undoCanvas(true);
 });
 
 document.getElementById("redo").addEventListener("click", () => {
