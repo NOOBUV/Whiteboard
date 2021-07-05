@@ -1,5 +1,4 @@
 const penWeightInput = document.querySelector(".pen-weight-input");
-
 function increaseFontSize(event) {
   penWeightInput.value++;
   PENCIL_WIDTH = penWeightInput.value;
