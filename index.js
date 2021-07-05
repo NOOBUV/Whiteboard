@@ -272,13 +272,13 @@ shapes.addEventListener("click", () => {
   handleShapeEvents();
 });
 
-function handleTextEvents() {
-  const addText = document.getElementById("add-text");
-  const removeText = document.getElementById("delete-text");
-  addText.addEventListener("click", (e) => {
-    context.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
-  });
-}
+// function handleTextEvents() {
+//   const addText = document.getElementById("add-text");
+//   const removeText = document.getElementById("delete-text");
+//   addText.addEventListener("click", (e) => {
+//     context.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
+//   });
+// }
 
 text.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
@@ -458,3 +458,43 @@ document.getElementById("undo").addEventListener("click", () => {
 document.getElementById("redo").addEventListener("click", () => {
   redoCanvas();
 });
+function addInput(x, y) {
+
+  var input = document.createElement('input');
+ 
+  input.type = 'text';
+  input.style.position = 'fixed';
+  input.style.left = (x - 100) + 'px';
+  input.style.top = (y - 100) + 'px';
+  input.style.border="none";
+  // input.style.size="38px";
+  
+  input.onkeydown = handleEnter;
+
+  document.body.appendChild(input);
+
+  input.focus();
+  
+ 
+}
+
+//Key handler for input box:
+function handleEnter(e) {
+  var keyCode = e.keyCode;
+  if (keyCode === 13) {
+      drawText(this.value, parseInt(this.style.left, 10), parseInt(this.style.top, 10));
+      document.body.removeChild(this);
+     
+  }
+
+}
+
+//Draw the text onto canvas:
+function drawText(txt, x, y) {
+  context.textBaseline = 'top';
+  context.textAlign = 'left';
+  context.font = font;
+  
+  context.fillText(txt, x - 50, y - 50);
+  
+}
