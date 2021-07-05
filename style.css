@@ -505,3 +505,77 @@ input[type="file"] {
   position: absolute;
   right: 10px;
 }
+
+/* Model */
+.trgt {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+
+/* Color Pallete */
+.color-pallete {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  display: none;
+}
+
+.color-pallete-option {
+  width: 30px;
+  height: 40px;
+  transition: all 100ms ease-in;
+  cursor: pointer;
+}
+
+.color-pallete-option-1 {
+  background-color: #343a40;
+  border-radius: 0.25rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.color-pallete-option-2 {
+  background-color: #dc3545;
+}
+
+.color-pallete-option-3 {
+  background-color: #fd7e14;
+}
+
+.color-pallete-option-4 {
+  background-color: #ffc107;
+}
+
+.color-pallete-option-5 {
+  background-color: #28a745;
+}
+
+.color-pallete-option-6 {
+  background-color: #007bff;
+}
+
+.color-pallete-option-7 {
+  background-color: #6610f2;
+  border-radius: 0.25rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.color-pallete-option:hover {
+  transform: scale(1.05);
+}
+
+.control-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+  padding-left: 20px;
+}
+
+.control-right {
+  flex-grow: 1;
+  margin-left: 50px;
+}

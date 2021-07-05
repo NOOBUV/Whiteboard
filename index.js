@@ -502,9 +502,9 @@ document.getElementById("redo").addEventListener("click", () => {
 // Switch board
 
 function whiteboardFunc() {
-  // document.querySelector(".nothing").classList.add("disp-un");
   document.querySelector(".nothing").style.display = "unset";
   document.querySelector(".something").style.display = "none";
+  document.querySelector(".color-pallete").style.display = "none";
 }
 
 function infiboardFunc() {
@@ -513,6 +513,8 @@ function infiboardFunc() {
 
   document.querySelector(".nothing").style.display = "none";
   document.querySelector(".something").style.display = "unset";
+  document.querySelector(".color-pallete").style.display = "unset";
+  document.querySelector(".color-pallete").style.display = "flex";
 }
 
 canvas.addEventListener("mousedown", handleMouseDown);
@@ -817,3 +819,23 @@ function makePopUp(p) {
 }
 
 document.querySelector(".infi-btn").addEventListener("click", makePopUp);
+
+// Collor Pallete
+
+const colorState = {
+  "color-pallete-option-1": "#343a40",
+  "color-pallete-option-2": "#dc3545",
+  "color-pallete-option-3": "#fd7e14",
+  "color-pallete-option-4": "#ffc107",
+  "color-pallete-option-5": "#28a745",
+  "color-pallete-option-6": "#007bff",
+  "color-pallete-option-7": "#6610f2",
+};
+
+for (let i = 0; i < 7; i++) {
+  document
+    .querySelectorAll(".color-pallete-option")
+    [i].addEventListener("click", function (e) {
+      PAINT_COLOR = colorState[e.target.classList[1]];
+    });
+}
