@@ -509,6 +509,9 @@ function whiteboardFunc() {
 }
 
 function infiboardFunc() {
+  // var myModal = document.getElementById("myModal");
+  // myModal.addEventListener("shown.bs.modal", function () {});
+
   document.querySelector(".nothing").style.display = "none";
   document.querySelector(".something").style.display = "unset";
 }
