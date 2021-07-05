@@ -505,10 +505,3 @@ input[type="file"] {
   position: absolute;
   right: 10px;
 }
-
-/* Model */
-.trgt {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-}
