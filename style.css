@@ -339,7 +339,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
 .triangle {
   color: #cccccc;
   position: absolute;
-  left: -15px;
+  left: -20px;
   transform: rotate(-90deg);
   width: 20px;
   height: 20px;
@@ -578,4 +578,7 @@ input[type="file"] {
 .control-right {
   flex-grow: 1;
   margin-left: 50px;
+}
+.download {
+  display: none;
 }

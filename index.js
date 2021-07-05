@@ -838,4 +838,30 @@ for (let i = 0; i < 7; i++) {
     [i].addEventListener("click", function (e) {
       PAINT_COLOR = colorState[e.target.classList[1]];
     });
-}
+   }
+
+  //  download image
+  window.onload = function() {
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var img = document.getElementById("img");
+    ctx.drawImage(img, 0, 0);
+  }
+  function saveImage() {
+    var ua = window.navigator.userAgent;
+
+    if (ua.indexOf("Chrome") > 0) {
+      // save image without file type
+      var canvas = document.getElementById("canvas");
+      document.location.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+
+      // save image as png
+      var link = document.createElement('a');
+        link.download = "test.png";
+        link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+        link.click();
+    }
+    else {
+      alert("Please use Chrome");
+    }
+  }

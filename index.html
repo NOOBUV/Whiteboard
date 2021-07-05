@@ -55,8 +55,9 @@
         </button>
       </li>
     </ul>
-
+    <img class="download" src="dynamsoft_logo_black.png" id="img" alt="dynamsoft"/>
     <div class="nothing">
+      
       <canvas id="canvas">
         <img src="" id="preview" alt="" />
       </canvas>
@@ -144,25 +145,6 @@
                   alt="hr_pattern"
                   data-pattern="hr_pattern"
                 />
-              </div>
-              <div class="btn">
-                <div class="grey">
-                  <!-- <input
-                    type="file"
-                    accept=".jpg, .jpeg, .png"
-                    class="custom-file-input"
-                    id="upload-bg-img"
-                  /> -->
-                  <label>
-                    <i class="fa fa-upload" aria-hidden="true"></i>
-                    <input
-                      type="file"
-                      size="60"
-                      accept=".jpg, .jpeg, .png"
-                      id="upload-bg-img"
-                    />
-                  </label>
-                </div>
               </div>
             </div>
             <span class="tool-tooltip">Pattern</span>
@@ -295,6 +277,9 @@
               ></i>
             </div>
           </div>
+          <button class="btn download-img" title="Download image" id="down-img" onclick="saveImage()">
+            <i class="fa fa-download" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
 
@@ -365,11 +350,15 @@
               <div class="control-left"><strong>Drawing
                 </strong>
               </div>
-              <div class="control-right">🖱 Left Click/ ☝ Single-finger-touch</div>
+              <div class="control-right">🖰 Left Click/ ☝ Single-finger-touch</div>
+            </div>
+            <div class="control-container">
+              <div class="control-left"><strong>Moving</strong></div>
+              <div class="control-right">🖰 Right Click/ ✌Two-finger-touch</div>
             </div>
             <div class="control-container">
               <div class="control-left"><strong>Zooming</strong></div>
-              <div class="control-right">🖱 Scroll wheel/ 🤏Pinch</div>
+              <div class="control-right">🖰 Scroll wheel/ 🤏Pinch</div>
             </div>
           </div>
           
