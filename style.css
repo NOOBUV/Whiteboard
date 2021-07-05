@@ -101,22 +101,22 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 4%;
-  height: 380px;
+  width: 3%;
+  height: 28rem;
   padding: 4px;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
   border-radius: 5px;
-  padding-right: 50px;
-  background-color: white;
+  /* padding-right: 50px; */
+  /* background-color: white; */
 }
 
 .btn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   padding: 5px;
   background-color: #eeeeee;
   border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -432,12 +432,12 @@ input[type="number"] {
 .right-tool-bar {
   /* display: flex; */
   /* flex-direction: column; */
-  background-color: white;
+  /* background-color: white; */
   position: absolute;
   top: 27%;
   right: 10px;
   padding: 5px;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
   border-radius: 5px;
 }
 
