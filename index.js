@@ -263,6 +263,14 @@ shapes.addEventListener("click", () => {
   handleShapeEvents();
 });
 
+function handleTextEvents() {
+  const addText = document.getElementById("add-text");
+  const removeText = document.getElementById("delete-text");
+  addText.addEventListener("click", (e) => {
+    context.fillText("Sample Text", canvas.width / 2, canvas.height / 2);
+  });
+}
+
 text.addEventListener("click", () => {
   arrayOfTools.forEach((tool) => {
     if (!tool.classList.contains("none")) {
@@ -270,6 +278,7 @@ text.addEventListener("click", () => {
     }
   });
   textElem.classList.remove("none");
+  handleTextEvents();
 });
 
 function handleEraserEvents() {
