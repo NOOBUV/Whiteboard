@@ -36,6 +36,7 @@ const states = [
 ];
 
 const state = "SELECT";
+let shape = false;
 
 const select = document.getElementById("select");
 const background = document.getElementById("background");
@@ -193,25 +194,33 @@ pencil.addEventListener("click", () => {
 });
 
 function handleShapeEvents() {
+  shape = true;
+  const shapeColor = document.getElementById("shapeColor");
+  shapeColor.addEventListener("input", (e) => {
+    context.strokeStyle = e.target.value;
+  });
   const rectangle = document.getElementById("shapeRect");
   rectangle.addEventListener("click", (e) => {
-    context.strokeRect(canvas.width / 2 - 100, canvas.height / 2, 400, 200);
+    context.strokeRect(
+      canvas.width / 2 - 100,
+      canvas.height / 2,
+      e.clientX,
+      e.clientY
+    );
   });
   const square = document.getElementById("shapeSquare");
   square.addEventListener("click", (e) => {
-    context.strokeRect(canvas.width / 2, canvas.height / 2, 200, 200);
+    context.strokeRect(
+      canvas.width / 2,
+      canvas.height / 2,
+      e.clientX,
+      e.clientY
+    );
   });
   const circle = document.getElementById("shapeCircle");
   circle.addEventListener("click", (e) => {
     context.beginPath();
-    context.arc(
-      canvas.width / 2 - 50,
-      canvas.height / 2,
-      50,
-      0,
-      Math.PI * 2,
-      false
-    );
+    context.arc(e.clientX, e.clientY, 80, 0, Math.PI * 2, false);
     context.stroke();
     context.beginPath();
   });
