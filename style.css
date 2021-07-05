@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  user-select: none;
 }
 
 html,
@@ -8,7 +9,7 @@ body {
   height: 100vh;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
+  overflow: hidden;
   text-align: center;
 }
 
@@ -101,22 +102,22 @@ input[type="color"]::-moz-color-swatch-wrapper {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 4%;
-  height: 380px;
+  width: 3%;
+  height: 28rem;
   padding: 4px;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
   border-radius: 5px;
-  padding-right: 50px;
-  background-color: white;
+  /* padding-right: 50px; */
+  /* background-color: white; */
 }
 
 .btn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   padding: 5px;
   background-color: #eeeeee;
   border: 1px solid #d6d6d6;
-  border-radius: 4px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -201,6 +202,14 @@ input[type="color"]::-moz-color-swatch-wrapper {
 
 .red {
   background-color: red;
+}
+
+.C78585 {
+  background-color: #c78585;
+}
+
+.C7853F {
+  background-color: #c7853f;
 }
 
 .green {
@@ -318,7 +327,7 @@ input[type="color"]::-moz-color-swatch-wrapper {
   padding: 0.4rem;
   flex-direction: column;
   position: absolute;
-  top: -180px;
+  top: 30px;
   left: 70px;
   border: 1px solid black;
   border-radius: 0.5rem;
@@ -424,7 +433,7 @@ input[type="number"] {
 
 .main {
   position: absolute;
-  top: 100px;
+  top: 30px;
   left: 10px;
 }
 
@@ -432,12 +441,12 @@ input[type="number"] {
 .right-tool-bar {
   /* display: flex; */
   /* flex-direction: column; */
-  background-color: white;
+  /* background-color: white; */
   position: absolute;
   top: 27%;
   right: 10px;
   padding: 5px;
-  border: 2px solid #eee;
+  /* border: 2px solid #eee; */
   border-radius: 5px;
 }
 
@@ -455,4 +464,44 @@ label {
 }
 input[type="file"] {
   display: none;
+}
+/* .fa-upload {
+  color: white;
+} */
+.text-tool {
+  display: none;
+}
+.shape-tool {
+  display: none;
+}
+
+#cnv {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+
+  /* Prevent document pinch-zoom & touch-hold-to-highlight */
+  touch-action: none;
+
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.nav-link {
+  background-color: #284e78;
+}
+
+.navbar {
+  position: absolute;
+  right: 10px;
 }
