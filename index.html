@@ -82,25 +82,25 @@
             <!-- bg-color dropdown -->
             <div class="bg-color-dropdown none">
               <div class="triangle bg">▲</div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color black"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color C78585"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color green"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color C7853F"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color yellow"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="bg-btn style-background-color white"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <input type="color" id="bg-btn-input" value="#0b717e" />
               </div>
             </div>
@@ -111,35 +111,35 @@
             <i class="fas fa-image"></i>
             <div class="bg-img-dropdown none">
               <div class="triangle tscales">▲</div>
-              <div class="btn bg-img-btn">
+              <div class="btn bg-img-btn whit bs">
                 <img
                   src="assets/box_pattern.png"
                   alt="box_pattern"
                   data-pattern="box_pattern"
                 />
               </div>
-              <div class="btn bg-img-btn">
+              <div class="btn bg-img-btn whit bs">
                 <img
                   src="assets/graph_pattern.png"
                   alt="graph_pattern"
                   data-pattern="graph_pattern"
                 />
               </div>
-              <div class="btn bg-img-btn">
+              <div class="btn bg-img-btn whit bs">
                 <img
                   src="assets/dotted_pattern.png"
                   alt="dotted_pattern"
                   data-pattern="dotted_pattern"
                 />
               </div>
-              <div class="btn bg-img-btn">
+              <div class="btn bg-img-btn whit bs">
                 <img
                   src="assets/transparent_pattern.png"
                   alt="transparent_pattern"
                   data-pattern="transparent_pattern"
                 />
               </div>
-              <div class="btn bg-img-btn">
+              <div class="btn bg-img-btn whit bs">
                 <img
                   src="assets/hr_pattern.png"
                   alt="hr_pattern"
@@ -155,25 +155,25 @@
             <!-- Pen Sub Tool -->
             <div class="pencil-sub-tools none">
               <div class="triangle tpen">▲</div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr black"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr red"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr green"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr blue"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr yellow"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <div class="pen-clr white"></div>
               </div>
-              <div class="btn">
+              <div class="btn whit">
                 <input
                   type="color"
                   class="pen-clr picker"
@@ -233,7 +233,7 @@
             <i class="fas fa-shapes"></i>
             <div class="shape-display none">
               <div class="triangle">▲</div>
-              <div class="btn">
+              <div class="btn whit">
                 <input type="color" id="shapeColor" />
               </div>
               <div class="btn" id="shapeRect">
@@ -277,23 +277,58 @@
               ></i>
             </div>
           </div>
+          <!-- download button -->
           <button class="btn download-img" title="Download image" id="down-img" onclick="saveImage()">
             <i class="fa fa-download" aria-hidden="true"></i>
           </button>
+          <!-- info button -->
+          <!-- <button class="btn info" title="info">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </button> -->
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </button>
+          <!-- info button ends here -->
+          <!-- modal of info -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-custom">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel"><strong class="features">DJP Whiteboard</strong></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-dialog modal-dialog-centered feature-modal">
+                  <p><strong class="features">Features:</strong></p>
+                  <ul>
+                    <li>Background have multiple shades</li>
+                    <li>Pen have multiple shades and size</li>
+                    <li>Eraser's size can be increased/decreased!</li>
+                    <li>Pattern for bussiness works!</li>
+                    <li>We have 2 boards Whiteboard and Infiboard switch them using top-right corner button!</li>
+                  </ul>
+                  <p><strong class="colorfeatures">Color Features:</strong></p>
+                  <ul>
+                    <li>Last shade of Pen and background have color selector!</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal of info ends here -->
         </div>
       </div>
 
       <div class="right-tool-bar">
         <div class="right">
-          <div class="btn" id="undo" id="undo">
+          <div class="btn blu" id="undo" id="undo">
             <i class="fas fa-undo"></i>
             <span class="top-tooltip">Undo</span>
           </div>
-          <div class="btn" id="redo" id="redo">
+          <div class="btn blu" id="redo" id="redo">
             <i class="fas fa-redo"></i>
             <span class="top-tooltip">Redo</span>
           </div>
-          <div class="btn" id="clear" id="clear">
+          <div class="btn blu" id="clear" id="clear">
             <i class="fas fa-trash-alt"></i>
             <span class="top-tooltip">Delete</span>
           </div>
