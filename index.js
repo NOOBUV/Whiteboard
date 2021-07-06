@@ -53,7 +53,6 @@ const backgroundElem = document.getElementsByClassName("bg-color-dropdown")[0];
 const patternElem = document.getElementsByClassName("bg-img-dropdown")[0];
 const pencilElem = document.getElementsByClassName("pencil-sub-tools")[0];
 const shapesElem = document.getElementsByClassName("shape-display")[0];
-const textElem = document.getElementsByClassName("text-options")[0];
 const eraserElem = document.getElementsByClassName("eraser-ctr")[0];
 
 const arrayOfTools = [
@@ -61,7 +60,6 @@ const arrayOfTools = [
   patternElem,
   pencilElem,
   shapesElem,
-  textElem,
   eraserElem,
 ];
 
@@ -127,27 +125,27 @@ function handlePatternEvents() {
     });
   });
 
-  const uploadImgBtn = document.getElementById("upload-bg-img");
-  uploadImgBtn.addEventListener("change", (e) => {
-    e.stopPropagation();
-    const reader = new FileReader();
-    const preview = document.getElementById("preview");
-    reader.onload = function (e) {
-      preview.setAttribute("src", e.target.result);
-    };
-    reader.readAsDataURL(uploadImgBtn.files[0]);
-    context.drawImage(
-      preview,
-      0,
-      0,
-      preview.width,
-      preview.height,
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-  });
+  // const uploadImgBtn = document.getElementById("upload-bg-img");
+  // uploadImgBtn.addEventListener("change", (e) => {
+  //   e.stopPropagation();
+  //   const reader = new FileReader();
+  //   const preview = document.getElementById("preview");
+  //   reader.onload = function (e) {
+  //     preview.setAttribute("src", e.target.result);
+  //   };
+  //   reader.readAsDataURL(uploadImgBtn.files[0]);
+  //   context.drawImage(
+  //     preview,
+  //     0,
+  //     0,
+  //     preview.width,
+  //     preview.height,
+  //     0,
+  //     0,
+  //     canvas.width,
+  //     canvas.height
+  //   );
+  // });
 }
 
 pattern.addEventListener("click", () => {
@@ -282,15 +280,15 @@ shapes.addEventListener("click", () => {
 //   });
 // }
 
-text.addEventListener("click", () => {
-  arrayOfTools.forEach((tool) => {
-    if (!tool.classList.contains("none")) {
-      tool.classList.add("none");
-    }
-  });
-  textElem.classList.remove("none");
-  // handleTextEvents();
-});
+// text.addEventListener("click", () => {
+//   arrayOfTools.forEach((tool) => {
+//     if (!tool.classList.contains("none")) {
+//       tool.classList.add("none");
+//     }
+//   });
+//   textElem.classList.remove("none");
+//   // handleTextEvents();
+// });
 
 function handleEraserEvents() {
   const input = document.querySelector(".eraser");
@@ -457,46 +455,60 @@ document.getElementById("redo").addEventListener("click", () => {
   redoCanvas();
 });
 
-//font = '38px sans-serif';
-// document.getElementById("add-text").onclick = function (e) {
-//   document.getElementById("canvas").onclick = function (e) {
-//     addInput(e.clientX, e.clientY);
-//   };
-// };
+font = "38px sans-serif";
+document.getElementById("add-text").onclick = function (e) {
+  canvas.addEventListener(
+    "click",
+    function (e) {
+      addInput(e.clientX, e.clientY);
+    },
+    { once: true }
+  );
+};
 
-// function addInput(x, y) {
-//   var input = document.createElement("input");
+function addInput(x, y) {
+  var input = document.createElement("input");
 
-//   input.type = "text";
-//   input.style.position = "fixed";
-//   input.style.left = x - 4 + "px";
-//   input.style.top = y - 4 + "px";
-//   input.style.border = "none";
-//   // input.style.size="38px";
+  input.type = "text";
+  input.style.position = "fixed";
+  input.style.background = BG_COLOR;
+  input.style.left = x - 4 + "px";
+  input.style.top = y - 4 + "px";
+  input.style.color = PENCIL_COLOR;
+  input.style.border = "none";
+  // input.style.size="38px";
 
-//   input.onkeydown = handleEnter;
+  input.onkeydown = handleEnter;
 
-//   document.body.appendChild(input);
+  document.body.appendChild(input);
 
-//   input.focus();
-// }
+  input.focus();
+}
 
-// //Key handler for input box:
-// function handleEnter(e) {
-//   var keyCode = e.keyCode;
-//   if (keyCode === 13) {
-//     drawText( this.value, parseInt(this.style.left, 10), parseInt(this.style.top, 10));
-//     document.body.removeChild(this);
-//   }
-// }
-
-// //Draw the text onto canvas:
-// function drawText(txt, x, y) {
-//   context.textBaseline = "top";
-//   context.textAlign = "left";
-//   context.font = font;
-
-//   context.fillText(txt, x - 4, y - 4);
+//Key handler for input box:
+function handleEnter(e) {
+  var keyCode = e.keyCode;
+  if (keyCode === 13) {
+    drawText(
+      this.value,
+      parseInt(this.style.left, 10),
+      parseInt(this.style.top, 10)
+    );
+    document.body.removeChild(this);
+  }
+}
+function removeHandler() {
+  document.getElementById("canvas").removeEventListener("click", abc);
+}
+//Draw the text onto canvas:
+function drawText(txt, x, y) {
+  context.strokeStyle = PENCIL_COLOR;
+  context.textBaseline = "top";
+  context.textAlign = "left";
+  context.font = font;
+  context.strokeStyle = PENCIL_COLOR;
+  context.fillText(txt, x - 4, y - 4);
+}
 // }
 
 // Switch board
@@ -838,30 +850,33 @@ for (let i = 0; i < 7; i++) {
     [i].addEventListener("click", function (e) {
       PAINT_COLOR = colorState[e.target.classList[1]];
     });
-   }
+}
 
-  //  download image
-  window.onload = function() {
+//  download image
+window.onload = function () {
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  var img = document.getElementById("img");
+  ctx.drawImage(img, 0, 0);
+};
+function saveImage() {
+  var ua = window.navigator.userAgent;
+
+  if (ua.indexOf("Chrome") > 0) {
+    // save image without file type
     var canvas = document.getElementById("canvas");
-    var ctx = canvas.getContext("2d");
-    var img = document.getElementById("img");
-    ctx.drawImage(img, 0, 0);
-  }
-  function saveImage() {
-    var ua = window.navigator.userAgent;
+    document.location.href = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
 
-    if (ua.indexOf("Chrome") > 0) {
-      // save image without file type
-      var canvas = document.getElementById("canvas");
-      document.location.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
-
-      // save image as png
-      var link = document.createElement('a');
-        link.download = "test.png";
-        link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
-        link.click();
-    }
-    else {
-      alert("Please use Chrome");
-    }
+    // save image as png
+    var link = document.createElement("a");
+    link.download = "test.png";
+    link.href = canvas
+      .toDataURL("image/png")
+      .replace("image/png", "image/octet-stream");
+    link.click();
+  } else {
+    alert("Please use Chrome");
   }
+}
